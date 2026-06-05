@@ -1,0 +1,11 @@
+resources:
+  jobs:
+    setup_infrastructure:
+      name: "setup_infrastructure_${var.env}"
+      tasks:
+        - task_key: setup
+          python_script_task:
+            path: src/pipelines/setup_infrastructure.py
+            parameters:
+              - "${var.env}"
+              - "${var.catalog}"

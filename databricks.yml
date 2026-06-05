@@ -1,0 +1,26 @@
+bundle:
+  name: zillow-economics-etl
+
+variables:
+  env:
+    default: dev
+  catalog:
+    default: dev_catalog
+
+targets:
+  dev:
+    variables:
+      env: dev
+      catalog: dev_catalog
+    workspace:
+      host: https://dbc-b826b42b-2fae.cloud.databricks.com
+
+  prod:
+    variables:
+      env: prod
+      catalog: prod_catalog
+    workspace:
+      host: hhttps://dbc-b826b42b-2fae.cloud.databricks.com
+
+include:
+  - resources/jobs/*.yml
